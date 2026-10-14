@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "name": "custom-taskops",
+  "displayName": "Custom TaskOps",
+  "version": "0.2.9",
+  "description": "Benchmark-task workflow: guided authoring, difficulty tuning, and gated iterate-review loops with context-isolated research and official track reviews.",
+  "compat": {
+    "source": "native",
+    "manifestDir": ".muse-plugin"
+  },
+  "capabilities": {
+    "skills": [
+      {
+        "id": "create-task",
+        "path": "skills/create-task/SKILL.md",
+        "enabledDefault": true
+      },
+      {
+        "id": "ideate-task",
+        "path": "skills/ideate-task/SKILL.md",
+        "enabledDefault": true
+      },
+      {
+        "id": "ease-task",
+        "path": "skills/ease-task/SKILL.md",
+        "enabledDefault": true
+      },
+      {
+        "id": "harden-task",
+        "path": "skills/harden-task/SKILL.md",
+        "enabledDefault": true
+      },
+      {
+        "id": "quality-fix",
+        "path": "skills/quality-fix/SKILL.md",
+        "enabledDefault": true
+      },
+      {
+        "id": "sanity-check",
+        "path": "skills/sanity-check/SKILL.md",
+        "enabledDefault": true
+      },
+      {
+        "id": "increase-context-tokens",
+        "path": "skills/increase-context-tokens/SKILL.md",
+        "enabledDefault": true
+      }
+    ],
+    "commands": [],
+    "hooks": [
+      {
+        "id": "task-gate",
+        "event": "Stop",
+        "command": ["sh", "hooks/task-gate.sh"],
+        "timeoutMs": 15000,
+        "statusMessage": "Task gate: checking task changes"
+      }
+    ],
+    "mcpServers": [],
+    "reminders": []
+  }
+}

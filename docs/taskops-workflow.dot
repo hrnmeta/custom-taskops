@@ -1,0 +1,57 @@
+digraph TaskOps {
+  graph [rankdir=TB, bgcolor="#F8FAFC", pad="0.35", nodesep="0.35", ranksep="0.65", splines=spline, fontname="Arial", fontsize=20, label="Custom TaskOps — Main Workflow", labelloc=t];
+  node [shape=box, style="rounded,filled", fontname="Arial", fontsize=11, color="#475467", fillcolor="#FFFFFF", margin="0.18,0.13"];
+  edge [fontname="Arial", fontsize=9, color="#667085", arrowsize=0.75];
+
+  start [shape=circle, label="START", fillcolor="#D1E9FF", color="#1570EF"];
+
+  entries [label="ENTRY SKILLS\n\nCreate • Ease • Harden\nIncrease context • Quality fix", fillcolor="#E0EAFF", color="#4E5BA6"];
+  direct [label="STANDALONE ENTRY\n\nSanity check", fillcolor="#F2F4F7"];
+  ideate [label="IDEATION ENTRY\n\nOwn-task CLI research → proposals", fillcolor="#E0EAFF", color="#4E5BA6"];
+
+  inspect [label="MAIN AGENT\n\nInspect task and\nchoose approach", fillcolor="#FEDF89", color="#DC6803"];
+  research [label="SUBAGENT\n\nCollect own-task CLI evidence\nwhen research is needed", fillcolor="#D1FADF", color="#039855"];
+  edit [label="MAIN AGENT\n\nPrepare one coherent\nchange batch", fillcolor="#FEDF89", color="#DC6803"];
+
+  sanity [label="MAIN AGENT — VERIFY\n\nDeterministic sanity check\nPristine fails • Oracle passes\nTask/verifier contract is valid", fillcolor="#E9D7FE", color="#7F56D9"];
+  sanity_ok [shape=diamond, label="Sanity\npasses?", fillcolor="#F4EBFF", color="#7F56D9"];
+  reviewer [label="OFFICIAL TRACK SKILL\n\nIndependent quality review\nusing the official checklist", fillcolor="#D1FADF", color="#039855"];
+  verdict [shape=diamond, label="Review passes?", fillcolor="#F4EBFF", color="#7F56D9"];
+  empirical [shape=diamond, label="Required empirical\ngate passes?", fillcolor="#F4EBFF", color="#7F56D9"];
+
+  fix [label="MAIN AGENT\n\nApply blocking fixes", fillcolor="#FEDF89", color="#DC6803"];
+  cap [shape=diamond, label="3 review\nrounds used?", fillcolor="#F4EBFF", color="#7F56D9"];
+  commit [label="MAIN AGENT\n\nCommit changes\n(one scoped commit)", fillcolor="#D1FADF", color="#039855"];
+  blocked [label="STOP UNCOMMITTED\n\nReport remaining blockers", fillcolor="#FEE4E2", color="#D92D20"];
+  proposals [label="Rank, select, or combine\nproposals", fillcolor="#D1E9FF", color="#1570EF"];
+  done [shape=doublecircle, label="DONE", fillcolor="#D1FADF", color="#039855"];
+
+  start -> entries;
+  start -> direct;
+  start -> ideate;
+
+  ideate -> proposals;
+  proposals -> inspect [label="create invoked"];
+  proposals -> done [label="proposals only"];
+  entries -> inspect;
+  inspect -> research [label="research needed"];
+  inspect -> edit [label="no research"];
+  research -> edit;
+  edit -> sanity;
+  direct -> sanity [label="sanity entry"];
+
+  sanity -> sanity_ok;
+  sanity_ok -> reviewer [label="yes"];
+  sanity_ok -> fix [label="no"];
+  fix -> sanity [label="re-verify", color="#D92D20", fontcolor="#D92D20"];
+
+  reviewer -> verdict;
+  verdict -> empirical [label="yes"];
+  empirical -> commit [label="yes / not applicable"];
+  empirical -> fix [label="no — revise and measure", color="#D92D20", fontcolor="#D92D20"];
+  verdict -> cap [label="needs fixes"];
+  cap -> fix [label="no — iterate", color="#D92D20", fontcolor="#D92D20"];
+  cap -> blocked [label="yes"];
+  commit -> done;
+  blocked -> done;
+}
