@@ -15,7 +15,9 @@ task has no remote history yet.
    ```
 
    Use the track's current Codimango id, resolved through `runtime-discovery.md`.
-   Omit `--track` when no track is known. The explicit `--filter mine` is
+   Do not assume the plugin profile filename is that remote id. Omit `--track`
+   when no remote track mapping is known and classify the bounded results
+   locally. The explicit `--filter mine` is
    required on every listing. Do not add `--pod` or `--tag`: those flags can
    replace the ownership scope rather than narrow it. Do not use review queues,
    recommended-to-review feeds, or `--filter all`.
@@ -28,6 +30,9 @@ task has no remote history yet.
    first confirm its exact identity in a mine-scoped listing. A bounded
    `--search <task-name>` query may locate it; require an exact name/id match,
    and report ambiguity or unconfirmed ownership before remote hydration.
+   `--search` matches names, URLs, and tags, so recheck the exact id/name
+   locally. An empty bounded search does not establish that a task is unowned;
+   treat it as unresolved and report the listing's completeness.
 3. Prefer comparable track, format, and environment. If fewer than three useful
    sources remain, one additional bounded mine-scoped listing without `--track`
    may supply transferable sources; label track/format differences. The user
@@ -104,8 +109,10 @@ failure or progress sequence, and focused trajectory evidence that created the
 signal. Recommend transformed combinations that preserve those difficult or
 context-intensive interactions.
 
-Do not retrieve or reproduce hidden verifier contents, complete successful
-answers, reference solutions, source prose, code, fixtures, data, identifiers,
-or an entire distinctive construction. Maintain source task/job/trial ids and
+Do not retrieve hidden verifier contents, complete successful answers, or
+source reference solutions for inspiration. Accessible source files and
+focused failure artifacts may be inspected for mechanics, but do not reproduce
+their prose, code, fixtures, data, or distinctive construction in a new task.
+Maintain source task/job/trial ids and
 the transformations proposed so provenance, contamination, originality, and
 embedding-dedup risk can be reviewed.

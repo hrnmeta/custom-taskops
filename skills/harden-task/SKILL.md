@@ -31,7 +31,8 @@ One task directory (default: the current directory). Detect the track from it (p
    local reasoning, reporting the source gap. Check the track profile's research-brief cache.
    Reuse a brief only when its
    cache envelope matches; seven days is merely the default maximum age.
-   Otherwise spawn the `custom-taskops/failure-researcher` subagent with op
+   Otherwise dispatch `failure-researcher` through
+   `<plugin>/references/researcher-dispatch.md` with op
    `harden`: failure modes of the current configured validation-gate target
    plus the bounded candidates and recent own-task failure library
    defined in the two discovery/calibration references (resolve the live

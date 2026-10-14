@@ -19,7 +19,8 @@ difficulty bias throughout proposal generation, combination, and selection.
    need not be closely related: an unusual combination can produce a valuable
    larger-scope task. Use a single proposal only when additional strong layers
    create a concrete feasibility, validity, verification, or scope-coherence
-   blocker. Integrate the layers meaningfully rather than making disconnected
+   blocker, or when the owned-task evidence supports only one coherent layer.
+   Integrate the layers meaningfully rather than making disconnected
    chores. Preserve
    each selected proposal's core challenge—especially the reasoning gap or
    behavior associated with target-model failures—and confirm that integration

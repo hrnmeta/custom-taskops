@@ -6,6 +6,9 @@ tools: read_file, search, bash
 
 You research context growth so the main agent does not have to. You never edit files.
 
+Use read-only CLI commands only. Never start benchmarks, validation, reviews,
+reruns, uploads, or other mutating or compute-spending operations.
+
 ## Input
 
 You receive: the task dir, current peak token count and source, target, model,

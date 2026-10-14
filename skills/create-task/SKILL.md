@@ -17,19 +17,25 @@ detection.
 
 ## Steps
 
-1. If no concrete idea was supplied, follow
+1. Before research or scaffolding, detect the track, read
+   `<plugin>/references/runtime-discovery.md`, its profile and repo adapter,
+   and `<plugin>/references/model-role.md`. Confirm the required capabilities
+   and current authoring authority. Automatic selection uses the user's scope;
+   if the current canonical rule requires a human seed and none was supplied,
+   request it before drafting task content.
+2. If no concrete idea was supplied, follow
    `<plugin>/references/ideation-to-creation.md`: run the proposal phase of
    `ideate-task`, record the selection or combination rationale, and
    continue here with the resulting concept. Do not enter a separate
    validation or commit cycle.
-2. Read `<plugin>/references/runtime-discovery.md`,
+3. Read `<plugin>/references/runtime-discovery.md`,
    `<plugin>/references/difficulty-strategy.md`, the detected track's
    profile at `<plugin>/profiles/<track>.md`, and the task repo's `AGENTS.md`
    adapter. Confirm that layout, metadata, verifier, review routing, and scratch
    capabilities are complete; stop with the missing capabilities rather than
    scaffolding from another track. Resolve current taxonomy values and official
    skill names at runtime.
-3. Scaffold per the profile: spec, tests, environment, verifier entrypoint, and
+4. Scaffold per the profile: spec, tests, environment, verifier entrypoint, and
    reference solution. Prefer the current official scaffold command/template
    when it supports the detected track and format (currently `codimango task
    init`), so required manifest fields and classification defaults originate
@@ -42,8 +48,10 @@ detection.
    `<plugin>/references/model-role.md` (confirm 1P authority; never refuse
    permitted work) and `<plugin>/references/instruction-style.md`, and follow
    both.
-4. Generate or update the task README only via the official `team-aai:update-readme` skill — never write a custom README.
-5. Run the new-task path in `<plugin>/references/iterate-review.md`: sanity
+5. Generate or update the task README only via the current official task README
+   skill (currently `team-aai:update-readme`), resolved and verified at runtime.
+   If unavailable, report the missing capability rather than inventing a README.
+6. Run the new-task path in `<plugin>/references/iterate-review.md`: sanity
    after scaffolding, then independent review; every review fix returns through
    sanity. Invoke the track's official review skill directly as defined in
    that loop. When creation followed ideation, supply its bounded source

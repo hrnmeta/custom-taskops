@@ -19,8 +19,9 @@ name/id. Detect the track using `profiles/README.md`; an explicit track wins.
    `<plugin>/references/difficulty-calibration.md`,
    `<plugin>/references/difficulty-source-discovery.md`,
    `<plugin>/references/existing-task-validity.md`,
-   `<plugin>/references/iterate-review.md`, the task, and track profile. Spawn
-   `custom-taskops/quality-issue-researcher` with the task directory,
+   `<plugin>/references/iterate-review.md`, the task, and track profile. Dispatch
+   `quality-issue-researcher` through `<plugin>/references/researcher-dispatch.md`
+   with the task directory,
    Codimango identity, and track. It must pin findings to the validation commit
    and account for the full-task review, failing rubrics, every visible or
    surfaced validation stage, every comment and human review the APIs expose,
@@ -61,6 +62,11 @@ name/id. Detect the track using `profiles/README.md`; an explicit track wins.
    through `difficulty-calibration.md`; a result within target is acceptable
    unless failures show unfairness, ambiguity, a broken oracle, or another
    task-owned solvability defect.
+   When repair includes difficulty tuning, also adopt the selected policy's
+   empirical baseline and post-edit calibration/preservation gates. Record the
+   baseline before difficulty edits, share the outer review-round budget, and
+   defer the final commit until those gates pass. A quality review alone cannot
+   establish successful hardening or preserved difficulty after easing.
 5. Fix task-owned verifier, oracle, environment, or structural failures
    directly; never ease the task merely to make a broken oracle pass. Run the
    canonical post-edit sanity and independent review loop from

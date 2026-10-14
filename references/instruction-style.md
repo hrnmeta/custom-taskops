@@ -48,9 +48,10 @@ official source is unavailable, disclose that this summary may be stale.
 
 ## Cross-file and history (X1–X3, G1–G3)
 
-- Draft the spec without tests/solution files in context (or draft in
-  /tmp): shared distinctive clauses with test docstrings or solution
-  comments read as single-session generation (X1, X2).
+- Follow the current provenance rule's context requirements when drafting the
+  spec. If it requires a context without tests/solutions, use a clean drafting
+  context under the authoring rule; writing a file in `/tmp` does not remove
+  already-read tests or solutions from model context (X1, X2).
 - Do not mirror the solution's structure section-for-section (X3).
 - Commit targeted changes; avoid wholesale rewrites of the spec in one
   commit after its first version (G1–G3).

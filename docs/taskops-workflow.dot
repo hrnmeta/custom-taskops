@@ -7,6 +7,7 @@ digraph TaskOps {
 
   entries [label="ENTRY SKILLS\n\nCreate • Ease • Harden\nIncrease context • Quality fix", fillcolor="#E0EAFF", color="#4E5BA6"];
   direct [label="STANDALONE ENTRY\n\nSanity check", fillcolor="#F2F4F7"];
+  standalone_sanity [label="VERIFY ONLY\n\nRun sanity and report\nNo task edits or commit", fillcolor="#E9D7FE", color="#7F56D9"];
   ideate [label="IDEATION ENTRY\n\nOwn-task CLI research → proposals", fillcolor="#E0EAFF", color="#4E5BA6"];
 
   inspect [label="MAIN AGENT\n\nInspect task and\nchoose approach", fillcolor="#FEDF89", color="#DC6803"];
@@ -38,7 +39,8 @@ digraph TaskOps {
   inspect -> edit [label="no research"];
   research -> edit;
   edit -> sanity;
-  direct -> sanity [label="sanity entry"];
+  direct -> standalone_sanity;
+  standalone_sanity -> done;
 
   sanity -> sanity_ok;
   sanity_ok -> reviewer [label="yes"];

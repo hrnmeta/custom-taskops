@@ -1,0 +1,48 @@
+# Plugin audit — 2026-10-14
+
+Reviewed the manifest, all seven skills, all three researcher definitions,
+profiles, shared references, hook, README, and workflow diagram. Removed the
+personal-testing status sentence from the README.
+
+## Issues fixed
+
+| Area | Finding and correction |
+| --- | --- |
+| Stop hook | Shell parsing split paths with spaces, missed files in new task directories, and mishandled renames. The helper now parses JSON and NUL-delimited Git status, handles nested working directories, and remains non-blocking. |
+| Hook guidance | Docker was treated as mandatory, documentation changes skipped review, and truncation could hide the next step. Docker is optional; workflow gates remain authoritative; summaries preserve guidance. |
+| Track discovery | Profile filenames were treated as remote track IDs, and remote detection could precede ownership checks. Profile IDs and Codimango track IDs are now distinguished; unknown mappings use bounded mine-scoped listings. |
+| Researcher dispatch | Bundled agents were assumed to be registered. Explicit registry resolution, general-subagent dispatch, and inline fallback now share the same bundled definitions and own-task scope. |
+| Review ownership | Official review skills could enter another producing workflow, and calibration attempts could reset review limits. Reviews are verification steps under one outer owner and a shared three-round budget. |
+| Calibration | Context measurement authorization was unspecified; quality repair could adopt difficulty edits without their empirical gates. Bounded local measurement and inherited calibration gates are now explicit. |
+| Sparse history | Multi-source proposal requirements conflicted with empty own-task history. Single-layer or fewer proposals are permitted with clearly labeled hypotheses. Source inspection and copying restrictions are distinguished. |
+| Evidence and cache | Seed/scope changes were absent from cache identity, scratch ignore status was assumed, and quality-review continuation lacked its concrete CLI flag. These requirements and bounded continuation are now explicit. |
+| Creation | Authoring/capability checks followed ideation, and temporary file placement was described as context isolation. Creation checks authority first; drafting must follow the current canonical context rules. |
+| Diagram | Standalone sanity flowed into review and commit despite being read-only. It now reports and ends without committing. |
+
+## Verification
+
+- `muse plugins validate . --json`: valid, zero diagnostics.
+- Ten hook regression cases passed against temporary Git repositories.
+- `shellcheck hooks/task-gate.sh` and `git diff --check`: passed.
+- Manifest/frontmatter names, local reference paths, and researcher definitions
+  checked for consistency; removed identifiers and browser commands absent.
+- Relevant installed Codimango command help checked, including own-task list
+  filters, review pagination, exact-commit review, artifacts, structural
+  validation, and local benchmark arguments.
+- SVG and PNG regenerated from the corrected Graphviz source.
+
+## Runtime limits
+
+This audit did not run task creation, remote Codimango reads, model trials, or
+official Team AAI review workflows. Current authoring/provenance rules, review
+delegates, model roles, account authentication, and platform JSON schemas still
+require runtime discovery. Named-agent registration depends on the host; the
+dispatch fallback handles its absence.
+
+TBench has the concrete profile. Android is a stub; SWE-bench and long-horizon
+remain partial until the capabilities documented in their profiles are supplied
+by current official sources or a task-repo adapter. Manifest validation alone
+does not establish support for those tracks.
+
+The source repository was left untouched. Audit changes are not committed by
+this audit.

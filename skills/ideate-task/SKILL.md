@@ -23,14 +23,17 @@ The track to ideate for (taken from the repo you are in unless stated otherwise)
    Check the track
    profile's research-brief cache and reuse it only when its full cache envelope matches;
    seven days is merely the default maximum age.
-2. Spawn the `custom-taskops/failure-researcher` subagent with op `ideate`,
+2. On a cache miss, dispatch `failure-researcher` through
+   `<plugin>/references/researcher-dispatch.md` with op `ideate`,
    scoped to that track and supplied with candidate names, ids, commits,
    authors, review states, and the mine-scoped query fingerprint. Prioritize
    high-quality owned tasks with substantial repeated gate failures. Require the
    concrete source material and provenance defined by the shared discovery
    reference, along with taxonomy gaps. Save the returned brief to the cache.
-3. Draft 2-4 ambitious proposals grounded in the brief and the human's seed
-   area. Each should combine multiple evidence-backed failure modes or challenge
+3. Draft 2-4 proposals grounded in the brief and the human's seed
+   area. Sparse own-task history may support fewer proposals or a single
+   coherent challenge layer; label unmeasured ideas as hypotheses and do not
+   invent evidence to fill a proposal count. With sufficient evidence, combine multiple evidence-backed failure modes or challenge
    layers by default, including unrelated layers when they can interact in one
    feasible task. Each has: title, one-paragraph concept, difficulty hypothesis,
    discrimination hypothesis (which agents it separates and why), and the core

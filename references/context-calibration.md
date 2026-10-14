@@ -18,3 +18,8 @@ and repeat when another evidence-backed lever remains within the outer review
 budget. Otherwise leave the task uncommitted and report the baseline, attempted
 lever, evidence gap, and next best action. Infrastructure failures do not
 establish regression or progress.
+
+Invoking context growth authorizes bounded local baseline and post-edit
+measurements for the target task, within the outer operation's three-review-
+round budget. Remote reruns, checkpoint pushes, and `--push` require explicit
+authorization. Do not launch measurements from the read-only researcher.

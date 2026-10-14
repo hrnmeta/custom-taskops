@@ -24,11 +24,16 @@ roles in the evidence inventory until they are classified.
 
 ## Codimango discovery
 
+Before remote task, job, or trial lookups, confirm task ownership through
+`difficulty-source-discovery.md`. Track detection also follows this scope.
+
 - Run `codimango --version` and relevant `<command> --help` before relying on
   optional flags. Do not substitute legacy namespaces or inferred commands.
 - Discover JSON with `keys`, types, completeness flags, and counts before
   selecting fields. Treat documented collections rather than response roots as
-  arrays. Follow pagination and assert `hasMore`/`readTruncated`/count signals.
+  arrays. Follow pagination only with flags supported by the installed CLI;
+  honor each operation's read/time bounds. Report incomplete coverage when a
+  bound or unavailable continuation prevents completion.
 - Resolve models with `codimango model list --json` and job/trial metadata.
   Human labels such as Avocado, oracle, or data-collection model are roles and
   targets, not permanent model ids.
@@ -75,6 +80,10 @@ permission-sensitive or provenance-sensitive decision.
 
 ## Cache envelope
 
+For research-agent resolution and fallback, follow `researcher-dispatch.md`.
+Pass the resolved plugin root to every researcher so its reference paths are
+usable outside the parent context.
+
 A cached research brief is reusable only when all relevant fingerprints match:
 
 - operation, task identity, track, and format;
@@ -86,6 +95,15 @@ A cached research brief is reusable only when all relevant fingerprints match:
 - model ids/roles and trial set used for empirical conclusions;
 - rubric version and official skill/rule identity when used;
 - profile and relevant plugin-reference revisions.
+
+For ideation, also fingerprint the user's seed, requested scope, and proposal
+constraints. A changed prompt invalidates an otherwise matching brief. These
+fields also apply to research prompted by a changed tuning objective.
+
+Use the profile's scratch directory or an explicit repo-adapter path. Create
+it only after checking that scratch is excluded from version control; report
+a missing ignore rule rather than staging research artifacts. A profile that
+labels a directory "gitignored" does not create the repo's ignore rule.
 
 Age is only an upper bound. Default to seven days when the profile does not set
 one, but invalidate immediately when a fingerprint changes. Put the envelope

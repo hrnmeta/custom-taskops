@@ -30,7 +30,8 @@ One task directory (default: the current directory). Detect the track from it (p
    hypotheses. Check the track profile's research-
    brief cache. Reuse a brief only when its
    cache envelope matches; seven days is merely the default maximum age.
-   Otherwise spawn the `custom-taskops/context-researcher` subagent with the
+   Otherwise dispatch `context-researcher` through
+   `<plugin>/references/researcher-dispatch.md` with the
    task, current peak, target, model identity, measurement procedure, and
    candidate names, ids, commits, authors, review states, and mine-scoped query
    fingerprint. Require the

@@ -24,7 +24,9 @@ envelope in the brief.
 
 Use only read-only Codimango commands. Start with `--help` when an option is
 unfamiliar. Never rerun validation, start reviews or benchmarks, cancel work,
-or upload assets.
+or upload assets. Bound the complete collection to roughly 15 minutes and
+report any unresolved coverage. Do not keep increasing limits or repeating
+pages when no new ids arrive; a repeated token or page is a retrieval gap.
 
 1. Run `codimango task show <task> --include-review --json` and pin the brief
    to `validationCommitSha` (fall back to `commitSha`). Record the current head
@@ -52,7 +54,9 @@ or upload assets.
    and bot entry the endpoint exposes. This endpoint has no completeness token,
    and deleted/redacted text may be unavailable, so record that limitation.
    Run `codimango task reviews <task> --full --limit 100 --json`, then
-   follow `nextPageToken` until `hasMore` is false. Include all human review
+   continue with `--page-token <nextPageToken>` until `hasMore` is false or the
+   collection budget is exhausted. Verify the flag with current help, and
+   report an incomplete history if continuation is unsupported. Include all human review
    outcomes and feedback, but label resolved, superseded, deleted, redacted,
    stale-commit, and current-commit items distinctly.
 5. Run `codimango job list <task> --json --limit <N>` with a bound large enough

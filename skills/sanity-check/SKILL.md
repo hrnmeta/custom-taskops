@@ -13,8 +13,12 @@ reward hacking, or solution correctness belong in the track's official review.
 
 One task directory (default: the current directory).
 
-Read `<plugin>/references/runtime-discovery.md` and fail closed when the track
-profile lacks a required layout, metadata, or verifier capability.
+Read `<plugin>/references/runtime-discovery.md`, detect the track through
+`<plugin>/profiles/README.md`, and read its profile and repo adapter. Fail closed
+when a required layout, metadata, or verifier capability is unavailable.
+Before reusing remote evidence, confirm ownership under the own-task discovery
+policy. Invoking this gate authorizes its bounded local structural and oracle
+checks for the target, but no remote reruns or publication.
 
 Target five minutes or less for this deterministic gate on TBench. Use the
 fastest authoritative verifier route, reuse safe build caches, and run each

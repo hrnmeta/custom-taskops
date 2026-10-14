@@ -15,7 +15,9 @@ Resolve top to bottom; first hit wins:
 1. Explicit track input.
 2. The task's declared track and format fields, matched against explicit
    aliases in available profiles. Do not strip unfamiliar suffixes by pattern.
-3. The codimango record (`task show`), when the task is staged.
+3. The Codimango record (`task show`), when the task is staged and its exact
+   identity has first been confirmed by `task list --filter mine`, following
+   `references/difficulty-source-discovery.md`.
 4. File markers from each profile's `Detection` section, tried in filename
    order. Note `steps/` marks multi-turn *format*, not the long-horizon
    track — format and track are orthogonal.
@@ -27,8 +29,11 @@ or repo adapter supplies every capability it needs (layout, verifier, review
 routing, scratch/cache, and any context target). A TODO is missing data and
 must fail closed for that capability.
 
-Profile filename (minus `.md`) is the track id used for research scoping
-and review routing.
+Profile filename (minus `.md`) is this plugin's profile id, not necessarily the
+Codimango track id. Resolve remote `--track` values from current owned-task
+metadata or authoritative runtime documentation. If that mapping is unknown,
+omit `--track` on the bounded mine-scoped listing and match profile markers,
+track, and format locally; do not send a guessed profile id to the CLI.
 
 ## Adding a track
 

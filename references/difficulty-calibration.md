@@ -1,7 +1,7 @@
 # Empirical difficulty calibration
 
 This is the shared authority for validation-gate difficulty measurements. An
-explicit current task or track policy wins. Otherwise this personal plugin's
+explicit current task or track policy wins. Otherwise this plugin's
 default target is 0–2 successes in five completed comparable trials.
 
 Resolve the live validation-gate role, model, agent, environment, result fields,

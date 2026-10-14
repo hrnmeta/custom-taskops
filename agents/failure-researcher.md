@@ -15,9 +15,9 @@ task evidence must belong to the authenticated user's own tasks.
 
 ## Steps
 
-1. Read `<plugin>/references/runtime-discovery.md`,
-   `<plugin>/references/difficulty-source-discovery.md`, and
-   `<plugin>/references/difficulty-calibration.md` for `ease` or `harden`.
+1. Always read `<plugin>/references/runtime-discovery.md` and
+   `<plugin>/references/difficulty-source-discovery.md`. For `ease` or `harden`,
+   also read `<plugin>/references/difficulty-calibration.md`.
    Record the Codimango CLI
    version, inspect relevant command help/JSON keys, and resolve current model
    ids and roles with `codimango model list --json` plus job metadata. Treat
@@ -48,7 +48,9 @@ task evidence must belong to the authenticated user's own tasks.
      promising transformed multi-source combinations. Preserve source
      mechanics, interfaces, invariants, verifier structure, failure sequences,
      and focused trajectory evidence rather than returning abstract labels.
-   - `ease`: non-avocado agent failures and tips biased to help those agents while keeping avocado difficulty unchanged.
+   - `ease`: failures from non-target model roles and tips to help those agents
+     while preserving the configured validation-gate target. Classify roles
+     from current metadata rather than assuming an Avocado model id.
    - `harden`: multiple validation-gate failure modes from the target and the
      strongest relevant discovered tasks. Include provenance ids and a concrete
      source dossier covering
@@ -63,3 +65,8 @@ A compact brief only: cache envelope (per `runtime-discovery.md`), context (3
 lines max), findings (max 8, each with evidence ref), actionable steps
 (numbered, file-scoped where possible), and unresolved/unknown signals. Keep it
 short; your return value is the whole product.
+
+Include the owned-source coverage and bounded concrete dossier required by
+discovery. The eight-finding cap limits primary recommendations, not source
+provenance or unresolved retrieval gaps. Missing source evidence yields
+explicitly labeled hypotheses, not invented trials or findings.

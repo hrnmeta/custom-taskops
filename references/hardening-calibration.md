@@ -65,10 +65,15 @@ attempt loop; never measure already-edited content and call it the baseline.
 
 ## Maximum three hardening attempts
 
+The three-attempt ceiling shares the outer operation's three-review-round
+budget in `iterate-review.md`. If review fixes consume that budget, stop
+uncommitted rather than starting another hardening attempt.
+
 For attempt 1 through 3:
 
-1. Apply one coherent batch combining the strongest current-task and own-
-   task failure patterns not already attempted.
+1. Apply one coherent batch using the strongest current-task and own-task
+   failure patterns not already attempted, or clearly labeled local hypotheses
+   when owned-source history is sparse.
 2. Run `sanity-check`, then invoke the track's official review skill directly
    through `iterate-review.md`. Supply the concrete source dossier and require
    explicit assessment of provenance, contamination, originality, and embedding deduplication under
@@ -81,7 +86,7 @@ For attempt 1 through 3:
    TBench tooling the shape is:
 
    ```text
-   codimango bench run -p <task> -a <gate-agent> -m <gate-model> --k-to-n -k 5 --json
+   codimango bench run -p <task> -a <gate-agent> -m <gate-model> --k-to-n -k 5 --jobs-dir <scratch>/jobs --json
    ```
 
    Store jobs/results only in profile scratch paths excluded from commits.

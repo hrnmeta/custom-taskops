@@ -6,7 +6,9 @@ than to discover and integrate a strong new layer into an easy task.
 
 - By default, combine multiple evidence-backed failure modes or challenge
   layers, including creatively related or unrelated ones. A single-layer task
-  needs a concrete reason why additional strong layers would harm it.
+  is appropriate when own-task history supports only one strong layer or when
+  additional layers would harm feasibility, validity, or coherence. Do not
+  invent source evidence to satisfy a multi-layer default.
 - Preserve the failure-inducing core of every selected layer. Integration must
   not simplify, bypass, disclose, or dilute the reasoning gap that made the
   layer valuable.

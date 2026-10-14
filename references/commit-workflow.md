@@ -14,6 +14,8 @@ higher-level loop.
   easing must preserve the validation-gate target; context growth must show
   comparable measured progress. Follow `difficulty-calibration.md`,
   `hardening-calibration.md`, and `context-calibration.md` respectively.
+  The same empirical gates apply when `quality-fix` adopts one of these
+  tuning policies; the outer workflow still owns the single commit.
 - On a blocking official review result after the round cap, or an unresolved
   sanity FAIL: do not commit. Escalate with status and leave the tree uncommitted.
 - On explicit user opt-out ("don't commit"): do not commit.

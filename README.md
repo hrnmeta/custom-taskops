@@ -5,8 +5,6 @@ task creation and edits; expensive failure research runs in
 context-isolated subagents that return compact actionable briefs. Task reviews
 use the track's official review skill directly.
 
-Status: personal battlefield testing. Shared later if it earns it.
-
 ![Custom TaskOps main workflow](docs/taskops-workflow.svg)
 
 ## Layout
@@ -16,14 +14,15 @@ Status: personal battlefield testing. Shared later if it earns it.
   `sanity-check`, `increase-context-tokens`.
 - `agents/` — subagent definitions: `failure-researcher`,
   `quality-issue-researcher`, `context-researcher`. Addressed as
-  `custom-taskops/<name>` once installed. If the runtime does not pick them
-  up from the package, copy them to `~/.config/muse/agents/` instead.
+  `custom-taskops/<name>` when registered by the runtime. Use
+  `references/researcher-dispatch.md` for named-agent, general-subagent, and
+  inline routes when bundled definitions are not registered.
 - `profiles/` — one track profile per task type, detected at runtime
   (see `profiles/README.md`). Profiles carry layout, verifier, metadata,
   review routing, scratch paths, and optional context targets.
 - `hooks/` — `task-gate.sh`: fast non-blocking Stop hook. Silent unless
   task files changed; reports structure/metadata status and whether the
-  change is trivial or substantive.
+  change affects documentation or substantive task content.
 - `references/` — shared rules loaded on demand: `model-role.md` (1P
   authorship authority), `instruction-style.md` (stylometric rules), and
   `commit-workflow.md` (single commit after review passes), plus
@@ -128,6 +127,8 @@ done
 ## Requirements
 
 - `codimango` CLI on PATH (failure research, oracle runs where applicable).
+- Python 3 (the non-blocking Stop hook).
+- Current official Team AAI skills for review and task README generation.
 - Per-track verifier where runnable (`harbor`, docker, or track tooling).
 - Trusted workspace so project files load.
 
@@ -135,3 +136,18 @@ done
 
 Resolve author identity from the task repo's configuration or explicit user
 input. Repo-specific paths stay in each task repo's `AGENTS.md` adapter.
+
+## Verification and track support
+
+```sh
+muse plugins validate . --json
+python3 -m unittest discover -s tests
+```
+
+TBench has a concrete profile. Android is a stub; SWE-bench and long-horizon
+need the capabilities listed in their profiles supplied by a current official
+source or the task repo's adapter. A valid plugin manifest does not establish
+that every track workflow is runnable.
+
+See [the plugin audit](docs/plugin-audit.md) for fixes, verification, and runtime
+limits.
