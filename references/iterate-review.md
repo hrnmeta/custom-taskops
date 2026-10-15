@@ -27,14 +27,45 @@ run full sanity.
 
 ## Edit and gate
 
+### One shared budget: at most three validation attempts
+
+The outer operation keeps one attempt ledger, numbered 1–3, for the entire
+requested change. An attempt is one changed candidate passing through sanity,
+official review, and every applicable empirical gate. Allocate its number
+before the first post-edit sanity check; scaffolding is candidate 1. Record
+the candidate, sanity verdict, review verdict, measurement verdict (or not
+applicable), and remaining budget. A gate not reached is recorded as not run.
+
+A blocking sanity result, blocking review result, failed empirical target,
+or invalid/incomplete measurement ends that attempt immediately. Do not run
+later gates on a failed candidate. Before applying fixes or trying another
+lever, check the ledger: if attempt 3 failed, stop uncommitted and report all
+attempts and remaining blockers. Otherwise apply one coherent repair batch
+and start the next numbered attempt with fresh sanity. Even a retry without
+task edits consumes the next attempt; never retry a failed gate indefinitely.
+
+There is at most one official review invocation per attempt. Passing sanity,
+review, and measurement on unchanged content belong to the same attempt.
+Attempt 3 may finish and commit if all its required gates pass; reaching the
+number 3 alone does not mean failure. Pre-edit baseline checks and research do
+not consume this post-edit budget. A configured five-trial measurement is one
+batch within an attempt, not five attempts; do not start replacement batches
+after a failed/incomplete result without allocating the next attempt.
+
+Repairs, hardening, easing, context growth, nested policies, and handoffs of
+the same requested change all share this ledger. Do not reset it to obtain
+more attempts. Only a new explicit user request starts a new budget. Missing
+authority or required tooling can stop the operation sooner.
+
 Before editing task specs or tests, resolve current authoring authority through
 `model-role.md` and its canonical source. Follow current provenance and spec
 drafting requirements in `instruction-style.md`; a sanity pass cannot grant
 authoring permission. Verification and research remain read-only.
 
 1. Apply one coherent batch of changes for the outer operation.
-2. Run `sanity-check`. Fix every blocking mechanical failure before
-   review, and preserve its commands/results as review evidence.
+2. Allocate the next attempt under the shared budget and run `sanity-check`.
+   Preserve its commands/results as review evidence. On a blocking failure,
+   end this attempt and use the budget rule before fixing or retrying.
 3. Resolve and invoke the track's official review skill directly, following
    `runtime-discovery.md` and the detected track profile. Verify the current
    Team AAI review orchestrator and its delegate before invoking them; stop if
@@ -53,19 +84,20 @@ authoring permission. Verification and research remain read-only.
    reuse fresh sanity execution evidence when the official checklist permits,
    but must perform any independent checks that checklist requires. Neither
    gate's conclusion substitutes for the other.
-4. Apply actionable review fixes, then return to step 2. Never review changed
-   files against a stale sanity result.
-5. Count every official review invocation against one budget of at most three
-   rounds for the entire outer operation, including empirical calibration
-   attempts. Do not reset the count after a trial failure or nested policy.
-   When the official review passes, use
-   `commit-workflow.md`; otherwise leave changes uncommitted and report status.
+4. On blocking review findings, end this attempt. Check the shared budget
+   before applying actionable fixes and returning to step 2. Never review
+   changed files against a stale sanity result.
+5. After review passes, run the operation's applicable empirical gates for
+   this candidate. A failed or incomplete gate ends the attempt and uses the
+   same budget rule before any repair or retry. Once all required gates pass,
+   use `commit-workflow.md`; otherwise leave changes uncommitted and report
+   status. Never start attempt 4 automatically.
 
 For difficulty or context tuning, a passing official review completes the
 quality gate for the current attempt but does not trigger a commit until the
 operation's empirical gate also passes. Subsequent edits invalidate both
 review and measurement evidence and return through sanity/review within the
-same round budget. Observed trial failures caused by setup, oracle, verifier,
+same three-attempt budget. Observed trial failures caused by setup, oracle, verifier,
 or infrastructure defects invalidate the measurement and route to repair;
 they cannot justify a commit even after a previously passing review.
 
@@ -73,6 +105,6 @@ they cannot justify a commit even after a previously passing review.
 
 When an outer skill needs another producing skill's domain policy, reuse only
 its research and edit criteria. The outer skill retains ownership of sanity,
-review rounds, and commit. Do not invoke a nested producing skill through its
+the attempt ledger, and commit. Do not invoke a nested producing skill through its
 final review/commit steps. If the requested work is solely the nested
 operation, hand off entirely and stop the outer workflow instead.

@@ -59,4 +59,4 @@ detection.
 
 ## Output
 
-Task location, gate results per round, and commit status.
+Task location, gate results per validation attempt, and commit status.

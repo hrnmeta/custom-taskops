@@ -14,14 +14,14 @@ digraph TaskOps {
   research [label="SUBAGENT\n\nCollect own-task CLI evidence\nwhen research is needed", fillcolor="#D1FADF", color="#039855"];
   edit [label="MAIN AGENT\n\nPrepare one coherent\nchange batch", fillcolor="#FEDF89", color="#DC6803"];
 
-  sanity [label="MAIN AGENT — VERIFY\n\nDeterministic sanity check\nPristine fails • Oracle passes\nTask/verifier contract is valid", fillcolor="#E9D7FE", color="#7F56D9"];
+  sanity [label="MAIN AGENT — VERIFY\n\nStart next attempt (1–3)\nDeterministic sanity check\nPristine fails • Oracle passes\nTask/verifier contract is valid", fillcolor="#E9D7FE", color="#7F56D9"];
   sanity_ok [shape=diamond, label="Sanity\npasses?", fillcolor="#F4EBFF", color="#7F56D9"];
   reviewer [label="OFFICIAL TRACK SKILL\n\nIndependent quality review\nusing the official checklist", fillcolor="#D1FADF", color="#039855"];
   verdict [shape=diamond, label="Review passes?", fillcolor="#F4EBFF", color="#7F56D9"];
   empirical [shape=diamond, label="Required empirical\ngate passes?", fillcolor="#F4EBFF", color="#7F56D9"];
 
   fix [label="MAIN AGENT\n\nApply blocking fixes", fillcolor="#FEDF89", color="#DC6803"];
-  cap [shape=diamond, label="3 review\nrounds used?", fillcolor="#F4EBFF", color="#7F56D9"];
+  cap [shape=diamond, label="3 validation\nattempts used?", fillcolor="#F4EBFF", color="#7F56D9"];
   commit [label="MAIN AGENT\n\nCommit changes\n(one scoped commit)", fillcolor="#D1FADF", color="#039855"];
   blocked [label="STOP UNCOMMITTED\n\nReport remaining blockers", fillcolor="#FEE4E2", color="#D92D20"];
   proposals [label="Rank, select, or combine\nproposals", fillcolor="#D1E9FF", color="#1570EF"];
@@ -44,15 +44,15 @@ digraph TaskOps {
 
   sanity -> sanity_ok;
   sanity_ok -> reviewer [label="yes"];
-  sanity_ok -> fix [label="no"];
-  fix -> sanity [label="re-verify", color="#D92D20", fontcolor="#D92D20"];
+  sanity_ok -> cap [label="no"];
+  fix -> sanity [label="next attempt", color="#D92D20", fontcolor="#D92D20"];
 
   reviewer -> verdict;
   verdict -> empirical [label="yes"];
   empirical -> commit [label="yes / not applicable"];
-  empirical -> fix [label="no — revise and measure", color="#D92D20", fontcolor="#D92D20"];
+  empirical -> cap [label="no — failed attempt", color="#D92D20", fontcolor="#D92D20"];
   verdict -> cap [label="needs fixes"];
-  cap -> fix [label="no — iterate", color="#D92D20", fontcolor="#D92D20"];
+  cap -> fix [label="no — repair", color="#D92D20", fontcolor="#D92D20"];
   cap -> blocked [label="yes"];
   commit -> done;
   blocked -> done;

@@ -1,0 +1,512 @@
+{
+  "source": "../taskops-workflow.dot",
+  "omitted_for_presentation": [
+    "direct",
+    "standalone_sanity"
+  ],
+  "nodes": {
+    "start": [
+      0,
+      317,
+      58,
+      66,
+      "Start"
+    ],
+    "entries": [
+      85,
+      300,
+      155,
+      100,
+      "Create \u00b7 Ease\nHarden \u00b7 Context\nQuality fix"
+    ],
+    "ideate": [
+      85,
+      70,
+      155,
+      80,
+      "Ideation\nResearch proposals"
+    ],
+    "proposals": [
+      275,
+      70,
+      155,
+      80,
+      "Rank / combine\nSelect proposals"
+    ],
+    "inspect": [
+      275,
+      300,
+      135,
+      100,
+      "Inspect task\nChoose approach"
+    ],
+    "research": [
+      505,
+      175,
+      135,
+      80,
+      "Research\nsubagent\nEvidence brief"
+    ],
+    "edit": [
+      505,
+      300,
+      135,
+      100,
+      "One coherent\nchange batch"
+    ],
+    "sanity": [
+      675,
+      300,
+      150,
+      100,
+      "Attempt 1\u20133\nSanity check\nPristine fails\nOracle passes"
+    ],
+    "sanity_ok": [
+      850,
+      300,
+      95,
+      100,
+      "Sanity\npasses?"
+    ],
+    "reviewer": [
+      970,
+      300,
+      155,
+      100,
+      "Independent\nreview\nOfficial checklist"
+    ],
+    "verdict": [
+      1150,
+      300,
+      95,
+      100,
+      "Review\npasses?"
+    ],
+    "empirical": [
+      1270,
+      300,
+      115,
+      100,
+      "Empirical\npasses?"
+    ],
+    "commit": [
+      1410,
+      300,
+      125,
+      100,
+      "Commit\nOne scoped\nchange"
+    ],
+    "done": [
+      1560,
+      317,
+      65,
+      66,
+      "Done"
+    ],
+    "fix": [
+      675,
+      450,
+      150,
+      85,
+      "Apply fixes\nNext candidate"
+    ],
+    "cap": [
+      1060,
+      450,
+      150,
+      85,
+      "3 attempts\nused?"
+    ],
+    "blocked": [
+      1410,
+      450,
+      125,
+      85,
+      "Stop\nuncommitted\nReport blockers"
+    ]
+  },
+  "edges": [
+    {
+      "from": "start",
+      "to": "entries",
+      "route": [
+        [
+          58,
+          350
+        ],
+        [
+          85,
+          350
+        ]
+      ]
+    },
+    {
+      "from": "start",
+      "to": "ideate",
+      "route": [
+        [
+          50,
+          317
+        ],
+        [
+          50,
+          110
+        ],
+        [
+          85,
+          110
+        ]
+      ]
+    },
+    {
+      "from": "ideate",
+      "to": "proposals",
+      "route": [
+        [
+          240,
+          110
+        ],
+        [
+          275,
+          110
+        ]
+      ]
+    },
+    {
+      "from": "proposals",
+      "to": "inspect",
+      "route": [
+        [
+          342,
+          150
+        ],
+        [
+          342,
+          300
+        ]
+      ]
+    },
+    {
+      "from": "proposals",
+      "to": "done",
+      "route": [
+        [
+          430,
+          110
+        ],
+        [
+          460,
+          110
+        ],
+        [
+          460,
+          30
+        ],
+        [
+          1592,
+          30
+        ],
+        [
+          1592,
+          317
+        ]
+      ]
+    },
+    {
+      "from": "entries",
+      "to": "inspect",
+      "route": [
+        [
+          240,
+          350
+        ],
+        [
+          275,
+          350
+        ]
+      ]
+    },
+    {
+      "from": "inspect",
+      "to": "research",
+      "route": [
+        [
+          410,
+          330
+        ],
+        [
+          455,
+          330
+        ],
+        [
+          455,
+          215
+        ],
+        [
+          505,
+          215
+        ]
+      ]
+    },
+    {
+      "from": "inspect",
+      "to": "edit",
+      "route": [
+        [
+          410,
+          350
+        ],
+        [
+          505,
+          350
+        ]
+      ]
+    },
+    {
+      "from": "research",
+      "to": "edit",
+      "route": [
+        [
+          572,
+          255
+        ],
+        [
+          572,
+          300
+        ]
+      ]
+    },
+    {
+      "from": "edit",
+      "to": "sanity",
+      "route": [
+        [
+          640,
+          350
+        ],
+        [
+          675,
+          350
+        ]
+      ]
+    },
+    {
+      "from": "sanity",
+      "to": "sanity_ok",
+      "route": [
+        [
+          825,
+          350
+        ],
+        [
+          850,
+          350
+        ]
+      ]
+    },
+    {
+      "from": "sanity_ok",
+      "to": "reviewer",
+      "route": [
+        [
+          945,
+          350
+        ],
+        [
+          970,
+          350
+        ]
+      ]
+    },
+    {
+      "from": "fix",
+      "to": "sanity",
+      "route": [
+        [
+          675,
+          492
+        ],
+        [
+          658,
+          492
+        ],
+        [
+          658,
+          385
+        ],
+        [
+          675,
+          385
+        ]
+      ]
+    },
+    {
+      "from": "reviewer",
+      "to": "verdict",
+      "route": [
+        [
+          1125,
+          350
+        ],
+        [
+          1150,
+          350
+        ]
+      ]
+    },
+    {
+      "from": "verdict",
+      "to": "empirical",
+      "route": [
+        [
+          1245,
+          350
+        ],
+        [
+          1270,
+          350
+        ]
+      ]
+    },
+    {
+      "from": "empirical",
+      "to": "commit",
+      "route": [
+        [
+          1385,
+          350
+        ],
+        [
+          1410,
+          350
+        ]
+      ]
+    },
+    {
+      "from": "verdict",
+      "to": "cap",
+      "route": [
+        [
+          1197,
+          400
+        ],
+        [
+          1197,
+          440
+        ],
+        [
+          1135,
+          440
+        ],
+        [
+          1135,
+          450
+        ]
+      ]
+    },
+    {
+      "from": "cap",
+      "to": "fix",
+      "route": [
+        [
+          1060,
+          492
+        ],
+        [
+          825,
+          492
+        ]
+      ]
+    },
+    {
+      "from": "cap",
+      "to": "blocked",
+      "route": [
+        [
+          1210,
+          492
+        ],
+        [
+          1410,
+          492
+        ]
+      ]
+    },
+    {
+      "from": "commit",
+      "to": "done",
+      "route": [
+        [
+          1535,
+          350
+        ],
+        [
+          1560,
+          350
+        ]
+      ]
+    },
+    {
+      "from": "blocked",
+      "to": "done",
+      "route": [
+        [
+          1535,
+          492
+        ],
+        [
+          1592,
+          492
+        ],
+        [
+          1592,
+          383
+        ]
+      ]
+    },
+    {
+      "from": "sanity_ok",
+      "to": "cap",
+      "route": [
+        [
+          897,
+          400
+        ],
+        [
+          897,
+          422
+        ],
+        [
+          1097,
+          422
+        ],
+        [
+          1097,
+          471
+        ]
+      ]
+    },
+    {
+      "from": "empirical",
+      "to": "cap",
+      "route": [
+        [
+          1327,
+          400
+        ],
+        [
+          1327,
+          565
+        ],
+        [
+          1135,
+          565
+        ],
+        [
+          1135,
+          535
+        ]
+      ]
+    }
+  ]
+}

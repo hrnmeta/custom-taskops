@@ -65,9 +65,10 @@ attempt loop; never measure already-edited content and call it the baseline.
 
 ## Maximum three hardening attempts
 
-The three-attempt ceiling shares the outer operation's three-review-round
-budget in `iterate-review.md`. If review fixes consume that budget, stop
-uncommitted rather than starting another hardening attempt.
+Use the single three-validation-attempt ledger in `iterate-review.md`, not a
+separate calibration counter. A failed sanity check or review consumes an
+attempt even when trials were never reached. Check the remaining budget before
+any repair or new candidate; the third failed attempt stops uncommitted.
 
 For attempt 1 through 3:
 
@@ -77,9 +78,10 @@ For attempt 1 through 3:
 2. Run `sanity-check`, then invoke the track's official review skill directly
    through `iterate-review.md`. Supply the concrete source dossier and require
    explicit assessment of provenance, contamination, originality, and embedding deduplication under
-   the current official checklist. Apply blocking review fixes and return
-   through sanity before spending trials. Defer the final commit while
-   calibration is in progress.
+   the current official checklist. A blocking sanity or review result ends
+   this attempt: use the shared budget before applying fixes and starting the
+   next attempt. Do not spend trials on a failed candidate. Defer the final
+   commit while calibration is in progress.
 3. Run five comparable validation-gate trials against the current working tree.
    Prefer the local runner so calibration does not require a checkpoint commit
    or push. Resolve flags from current help and the track profile; for current
@@ -94,12 +96,15 @@ For attempt 1 through 3:
    broken setup, oracle/verifier defects, timeouts caused by infrastructure,
    and flaky execution route to repair and invalidate the measurement.
 5. Apply the configured target resolved through `difficulty-calibration.md`.
-   On success, finish the canonical commit workflow. Above target, analyze the
-   new trajectories and begin the next attempt with a materially different or
-   stronger combination. A lower pass count is useful evidence but is not
+   On success, finish the canonical commit workflow. Above target, end this
+   attempt, analyze the
+   new trajectories, and check the shared budget before starting the next
+   candidate with a materially different or stronger combination. A lower pass
+   count is useful evidence but is not
    success while it remains above target.
 
-After three complete attempts without reaching target, stop uncommitted and
+After the third failed validation attempt, whether or not trials were reached,
+stop uncommitted and
 report the baseline, each attempt, failure classifications, strongest remaining
 levers, and any external limitation. Never claim successful hardening from
 static review or a difficulty-tag change.

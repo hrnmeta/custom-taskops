@@ -64,7 +64,7 @@ name/id. Detect the track using `profiles/README.md`; an explicit track wins.
    task-owned solvability defect.
    When repair includes difficulty tuning, also adopt the selected policy's
    empirical baseline and post-edit calibration/preservation gates. Record the
-   baseline before difficulty edits, share the outer review-round budget, and
+   baseline before difficulty edits, share the outer three-validation-attempt ledger, and
    defer the final commit until those gates pass. A quality review alone cannot
    establish successful hardening or preserved difficulty after easing.
 5. Fix task-owned verifier, oracle, environment, or structural failures

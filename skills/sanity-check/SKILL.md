@@ -74,5 +74,8 @@ the profile/tooling reason rather than weakening the gate.
 
 PASS/FAIL per check with brief file evidence, commands/results for both oracle
 directions, and total elapsed time. Preserve this evidence for the subsequent
-review. Any FAIL on checks 1–6 blocks the iterate-review loop until fixed;
+review. Any FAIL or UNVERIFIED on checks 1–6 blocks later gates for this
+candidate. The outer workflow uses `iterate-review.md` to count this failed
+validation attempt and checks its shared three-attempt budget before any fix
+or retry. This skill runs one gate invocation and never retries itself;
 check 7 is advisory only.

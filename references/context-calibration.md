@@ -13,13 +13,16 @@ measurable legitimate progress toward the target and the reviewer accepts the
 mechanism as substantive rather than padding. Reaching the full target is not
 required unless current task/track policy says so.
 
-If measurement is unavailable, incomparable, or shows no improvement, revise
-and repeat when another evidence-backed lever remains within the outer review
-budget. Otherwise leave the task uncommitted and report the baseline, attempted
+If measurement is unavailable, incomparable, or shows no improvement, end
+the attempt. Revise and repeat only when another evidence-backed lever remains
+and the shared three-attempt ledger in `iterate-review.md` has capacity.
+A blocking sanity or review result also ends the attempt before measurement.
+The third failed attempt stops before further repairs or measurements. Otherwise leave the task uncommitted and report the baseline,
+attempted
 lever, evidence gap, and next best action. Infrastructure failures do not
 establish regression or progress.
 
 Invoking context growth authorizes bounded local baseline and post-edit
-measurements for the target task, within the outer operation's three-review-
-round budget. Remote reruns, checkpoint pushes, and `--push` require explicit
+measurements for the target task, within the outer operation's three-validation-
+attempt budget. Remote reruns, checkpoint pushes, and `--push` require explicit
 authorization. Do not launch measurements from the read-only researcher.

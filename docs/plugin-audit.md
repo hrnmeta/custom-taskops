@@ -46,3 +46,23 @@ does not establish support for those tracks.
 
 The source repository was left untouched. Audit changes are not committed by
 this audit.
+
+## Follow-up: validation budget — 2026-10-15
+
+The original cap counted official reviews. Repeated sanity repairs could bypass
+it, and calibration described a separate attempt counter. The canonical loop
+now uses one numbered ledger of at most three post-edit validation attempts.
+Any blocking sanity, review, or empirical failure ends an attempt; the third
+failure stops uncommitted before more fixes or retries. A successful third
+attempt can commit. Nested policies and handoffs preserve the ledger. Baselines
+are excluded, and a five-trial measurement is one batch within an attempt.
+
+Updated difficulty, hardening, context, repair, sanity, commit instructions,
+and README/slide diagrams to share this rule. Manifest validation passed with
+zero diagnostics; checked all producing entry references, all diagram failure
+routes, and static traces for sanity/review/measurement/mixed failures and
+success on attempts 1–3. Regenerated SVG/PNG and presentation exports.
+
+The limit is an agent instruction, not an executable runtime guard. No live
+Muse task workflow or model trials were run to establish agent compliance.
+The advisory Stop hook remains separate from the attempt ledger.

@@ -16,8 +16,10 @@ higher-level loop.
   `hardening-calibration.md`, and `context-calibration.md` respectively.
   The same empirical gates apply when `quality-fix` adopts one of these
   tuning policies; the outer workflow still owns the single commit.
-- On a blocking official review result after the round cap, or an unresolved
-  sanity FAIL: do not commit. Escalate with status and leave the tree uncommitted.
+- On any unresolved sanity, review, or empirical failure: do not commit.
+  After the third failed validation attempt, stop before further fixes or
+  retries, report the attempt ledger, and leave the tree uncommitted.
+  Attempt 3 may commit when all required gates pass on its unchanged candidate.
 - On explicit user opt-out ("don't commit"): do not commit.
 
 ## Procedure

@@ -46,7 +46,10 @@ use the track's official review skill directly.
 3. Task edits follow `references/iterate-review.md`: an exact-content evidence
    baseline (full sanity when required), edits, post-edit sanity, independent
    review, and every review fix back through sanity.
-4. Loop budget: max 3 review rounds, then escalate to the user.
+4. Loop budget: at most 3 validation attempts for the whole operation. A
+   failed sanity, review, or empirical gate consumes an attempt. After the
+   third failure, stop uncommitted before further fixes or retries; all gates
+   passing on attempt 3 may still produce the commit.
 5. When the official review and empirical gates pass, one commit per the commit workflow (`references/commit-workflow.md`); on rejection or escalation, leave the tree uncommitted.
 
 Invoking `create-task` without a concrete idea automatically composes both
@@ -77,7 +80,8 @@ forward concrete source mechanics,
 invariants, verifier structure, and trajectory evidence without verbatim reuse,
 records provenance and substantial transformations, explicitly reviews
 contamination/originality/embedding-dedup risk, and runs up to three five-trial
-local calibration attempts. It commits only after the configured difficulty
+local calibration batches within the shared validation-attempt budget
+(failed sanity or review can exhaust it before trials). It commits only after the configured difficulty
 target and the ordinary sanity/review gates pass.
 For an unchanged task with complete exact-current-content platform evidence,
 hardening uses a cheap pre-edit validity preflight instead of rerunning the full

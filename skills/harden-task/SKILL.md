@@ -58,8 +58,10 @@ One task directory (default: the current directory). Detect the track from it (p
      Follow the concrete-source-dossier and non-copying
      requirements in `hardening-calibration.md`.
 4. Run the maximum-three-attempt measured loop in
-   `<plugin>/references/hardening-calibration.md`. Each attempt must pass sanity
-   and independent review before its five local target-model trials. Defer the
+   `<plugin>/references/hardening-calibration.md`. Use the outer ledger: failed sanity or review also
+   consumes an attempt, and the third failure stops before further fixes. Each
+   candidate must pass sanity and independent review before its five local
+   target-model trials. Defer the
    commit until both quality gates and the configured empirical target pass.
    Bump the difficulty tag only when warranted by the measured result.
 
