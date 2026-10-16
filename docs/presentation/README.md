@@ -4,10 +4,9 @@
 
 Six slides with native editable text and diagrams. The deck is private to its owner.
 
-Story: cover by Hugo Ng → recurring failures and multiple entry points → shared horizontal validation flow → comparison of actual task operations → one technical slide on skills, shared references, and track profiles → try, customize, or build your own plugin.
+Story: cover by Hugo Ng → recurring failures and multiple entry points → shared horizontal validation flow → comparison of actual task operations → one technical slide on skills, shared references, and track profiles → identify repeated work, design custom/reused steps, and personalize through edits and reinstalls.
 
 - `custom-taskops.md`: content outline.
-- `speaker-notes.md`: presenter notes, also in Google Slides.
 - `tooling-research.md`: internal sources and comparison rationale.
 - `workflow-layout.json`: horizontal layout of the task-change workflow; standalone sanity-only nodes are omitted for presentation.
 - `custom-taskops.pdf`: rendered deck.

@@ -2,6 +2,8 @@
 
 Every skill that edits a task uses this loop. One outer skill owns the loop and
 final commit; a nested policy must not start another review/commit cycle.
+Read `readme-authorship.md` before any task edits: only the official
+`update-readme` skill authors task READMEs, and agent changelogs are prohibited.
 
 ## Existing task baseline
 
@@ -63,6 +65,9 @@ drafting requirements in `instruction-style.md`; a sanity pass cannot grant
 authoring permission. Verification and research remain read-only.
 
 1. Apply one coherent batch of changes for the outer operation.
+   Refresh the task README only through the official skill when needed, and
+   retain its generation evidence under `readme-authorship.md`. Never append
+   an iteration summary or fix README findings by hand.
 2. Allocate the next attempt under the shared budget and run `sanity-check`.
    Preserve its commands/results as review evidence. On a blocking failure,
    end this attempt and use the budget rule before fixing or retrying.
@@ -71,6 +76,7 @@ authoring permission. Verification and research remain read-only.
    Team AAI review orchestrator and its delegate before invoking them; stop if
    routing is missing or ambiguous. Follow the official skill's checklist,
    blocking criteria, and output format. Supply fresh sanity evidence and any
+   README generation evidence required by `readme-authorship.md`, plus the
    bounded source dossier, including the transformations actually used, for
    provenance, contamination, originality, and embedding-dedup assessment.
    Request a read-only review: the outer operation owns fixes, measurements,

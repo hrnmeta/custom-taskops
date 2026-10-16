@@ -14,6 +14,7 @@ One task directory (default: the current directory). Detect the track from it (p
 ## Steps
 
 1. Read `<plugin>/references/runtime-discovery.md`,
+   `<plugin>/references/readme-authorship.md`,
    `<plugin>/references/difficulty-calibration.md`,
    `<plugin>/references/difficulty-source-discovery.md`,
    `<plugin>/references/existing-task-validity.md`,

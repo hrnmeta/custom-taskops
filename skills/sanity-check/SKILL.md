@@ -1,6 +1,6 @@
 ---
 name: sanity-check
-description: Fast deterministic gate for one task — structure, metadata, verifier contract, test substance, and two-direction evidence. No edits, no judgment calls.
+description: Fast deterministic gate for one task — structure, metadata, verifier contract, test substance, two-direction evidence, and README policy. No edits, no judgment calls.
 ---
 
 # Sanity Check
@@ -13,7 +13,8 @@ reward hacking, or solution correctness belong in the track's official review.
 
 One task directory (default: the current directory).
 
-Read `<plugin>/references/runtime-discovery.md`, detect the track through
+Read `<plugin>/references/runtime-discovery.md` and
+`<plugin>/references/readme-authorship.md`, detect the track through
 `<plugin>/profiles/README.md`, and read its profile and repo adapter. Fail closed
 when a required layout, metadata, or verifier capability is unavailable.
 Before reusing remote evidence, confirm ownership under the own-task discovery
@@ -65,7 +66,14 @@ the profile/tooling reason rather than weakening the gate.
    literals; each omission is FAIL. Whether requirements are semantically
    sufficient, unambiguous, fairly tested, or accepting of valid alternatives
    belongs to the track's official review.
-7. Style sweep (advisory, never blocks): grep instruction.md for the
+7. README policy: inspect the task README and its diff under
+   `readme-authorship.md`. A created or changed README requires matching
+   official `update-readme` invocation/result and content fingerprint; absent
+   evidence is UNVERIFIED. Task-edit changelogs/history or dated/commit-indexed
+   iteration summaries are FAIL. An unchanged existing README needs no new
+   generation solely to prove its historical authorship. Report file evidence
+   and skill identity. Make no edits; only the official skill regenerates it.
+8. Style sweep (advisory, never blocks): grep instruction.md for the
    banned phrases in `<plugin>/references/instruction-style.md` (S1–S7).
    Report hits with file:line for author judgment; a lone hit is not a
    finding, a cluster is.
@@ -74,8 +82,8 @@ the profile/tooling reason rather than weakening the gate.
 
 PASS/FAIL per check with brief file evidence, commands/results for both oracle
 directions, and total elapsed time. Preserve this evidence for the subsequent
-review. Any FAIL or UNVERIFIED on checks 1–6 blocks later gates for this
+review. Any FAIL or UNVERIFIED on checks 1–7 blocks later gates for this
 candidate. The outer workflow uses `iterate-review.md` to count this failed
 validation attempt and checks its shared three-attempt budget before any fix
 or retry. This skill runs one gate invocation and never retries itself;
-check 7 is advisory only.
+check 8 is advisory only.

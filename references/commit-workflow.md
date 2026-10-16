@@ -9,6 +9,11 @@ higher-level loop.
 
 ## Gate
 
+- Require the README policy gate from `readme-authorship.md`: all changed task
+  READMEs must have matching official generation evidence and no task-edit
+  changelogs/history. Do not stage hand-authored README fixes or commit an
+  unresolved documentation-policy failure.
+
 - Commit only when the official review passes and every
   operation-specific gate passes. Hardening must meet its empirical target;
   easing must preserve the validation-gate target; context growth must show

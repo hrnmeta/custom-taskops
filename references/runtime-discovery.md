@@ -73,6 +73,12 @@ orchestrator is unavailable or ambiguous, stop and report the candidates
 instead of running a similarly named cross-track review. `review-routing` is a
 human-review queue workflow and must not be used for checklist selection.
 
+Resolve the current official `update-readme` skill (currently
+`team-aai:update-readme`) as the sole task README authoring route, following
+`readme-authorship.md`. Verify its task/track applicability and non-committing
+invocation. Missing routing is a blocking capability gap; local templates,
+manual README edits, and review-written changelogs are not substitutes.
+
 Copied summaries such as model-role and instruction-style notes are aids. Read
 their named canonical source when available; the canonical source wins. If it
 cannot be read, disclose that the local summary may be stale before making a

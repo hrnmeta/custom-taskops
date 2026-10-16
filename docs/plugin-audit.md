@@ -66,3 +66,24 @@ success on attempts 1–3. Regenerated SVG/PNG and presentation exports.
 The limit is an agent instruction, not an executable runtime guard. No live
 Muse task workflow or model trials were run to establish agent compliance.
 The advisory Stop hook remains separate from the attempt ledger.
+
+## Follow-up: task README authoring — 2026-10-16
+
+README authorship was restricted in creation but not explicitly shared by
+repair and tuning. Added `references/readme-authorship.md` and load it from all
+five producing skills plus sanity. Only the current official `update-readme`
+skill may create/update task documentation; no changelogs or task-edit history.
+Changed READMEs require matching generation evidence; review fixes regenerate
+through that same skill. Missing evidence or history blocks sanity and commit,
+with retries using the existing shared three-attempt ledger. Unchanged existing
+READMEs do not need generation just to reconstruct historical authorship.
+
+Manifest validation passed with zero diagnostics. Verified reference paths,
+blocking/advisory check numbering, and source/slide flowchart edge agreement.
+Regenerated diagram assets and visually checked slides 2, 3, and 6. Confirmed
+installed `codimango bench run`/`bench stats` help supports pre-push local trials
+and result inspection; no task trials or remote mutations were performed.
+Publication and hosted monitoring behavior were not changed.
+
+These are workflow instructions and evidence checks; no live agent run was
+used to demonstrate compliance with the README policy.

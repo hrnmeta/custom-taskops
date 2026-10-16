@@ -8,13 +8,16 @@ Automated validation. Consistent iteration. A workflow you can customize.
 
 # Why I built Custom TaskOps
 
-Different task modifications need the same checks—and the same repair loop.
+Repeated prompts, reruns, and tracking each agent’s state
+leave less attention for difficult issues.
 
-Common checks
+Common checks & rules
 
 Oracle / setup correctness
 Spec clarity / test alignment
-Resistance to reward hacking
+Suitable difficulty
+Prevent reward hacking
+README: official update-readme, no changelogs
 
 Entry points
 
@@ -23,12 +26,14 @@ Harden it
 Extend context
 Resolve review findings
 
-One command runs shared checks, applies fixes, and rechecks.
-Replace repeated verification and repair prompts with a consistent loop.
+A shared workflow runs checks, fixes, and revalidation without repeated prompts.
+Less supervision per task leaves more attention for hard issues and parallel work.
 
 ---
 
 # One workflow, from request to validated commit
+
+Quality review checks task validity and quality; local model trials measure difficulty before commit. Creation measures when task/track policy requires it. No automatic platform push/monitor cycle.
 
 Shared validation/repair loop, omitting the sanity-only path. Sanity, official review, required measurement, and a scoped commit. Unresolved blockers stay uncommitted within a shared budget of at most three validation attempts. All failed gates check the cap before repairs; the third failure stops, while a successful third attempt may commit.
 
@@ -84,24 +89,30 @@ Ask AI to edit a skill, shared rule, or track profile to match how you work.
 
 ---
 
-# Custom TaskOps on GitHub
-
-Try Custom TaskOps
-
-Run a task operation.
-Inspect the checks, fixes,
-and resulting commit.
-
-Customize it
-
-Keep the useful defaults.
-Change steps, policies,
-or track-specific behavior.
-
-Build your own
-
-Use this structure
-or start a blank plugin.
-Ask AI to write the workflow.
+# From your workflow to your own plugin
 
 github.com/hrnmeta/custom-taskops
+
+1. Repeated work
+
+Which steps or repairs keep needing another prompt?
+Where do existing skills leave manual follow-up?
+
+2. Your mental model
+
+Custom steps, reused skills (official review, difficulty tuning), or both?
+Plan user input, handoffs, required checks, and failure handling.
+If tuning finishes but validation fails, what happens next?
+
+3. Adapt, build, iterate
+
+Adapt Custom TaskOps or build your own plugin; tailor it to how you work.
+When behavior misses your intent, ask AI to revise the steps or policies.
+Validate and reinstall; keep refining your defaults and track overrides.
+
+Install / update
+
+```bash
+muse plugins install /path/to/custom-taskops --scope user
+muse plugins approve custom-taskops
+```

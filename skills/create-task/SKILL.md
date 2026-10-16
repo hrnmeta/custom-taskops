@@ -18,7 +18,8 @@ detection.
 ## Steps
 
 1. Before research or scaffolding, detect the track, read
-   `<plugin>/references/runtime-discovery.md`, its profile and repo adapter,
+   `<plugin>/references/runtime-discovery.md`,
+   `<plugin>/references/readme-authorship.md`, its profile and repo adapter,
    and `<plugin>/references/model-role.md`. Confirm the required capabilities
    and current authoring authority. Automatic selection uses the user's scope;
    if the current canonical rule requires a human seed and none was supplied,
@@ -50,7 +51,10 @@ detection.
    both.
 5. Generate or update the task README only via the current official task README
    skill (currently `team-aai:update-readme`), resolved and verified at runtime.
-   If unavailable, report the missing capability rather than inventing a README.
+   Follow `readme-authorship.md`: retain matching generation evidence and
+   prohibit changelogs or iteration summaries. Never directly edit README
+   content. If unavailable, report the missing capability rather than inventing
+   a README.
 6. Run the new-task path in `<plugin>/references/iterate-review.md`: sanity
    after scaffolding, then independent review; every review fix returns through
    sanity. Invoke the track's official review skill directly as defined in

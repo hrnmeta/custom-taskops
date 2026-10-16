@@ -59,7 +59,7 @@
       300,
       150,
       100,
-      "Attempt 1\u20133\nSanity check\nPristine fails\nOracle passes"
+      "Attempt 1\u20133\nSanity check\nPristine / oracle\nTask + README"
     ],
     "sanity_ok": [
       850,
@@ -87,7 +87,7 @@
       300,
       115,
       100,
-      "Empirical\npasses?"
+      "Trials / metrics\npass?"
     ],
     "commit": [
       1410,

@@ -16,6 +16,7 @@ name/id. Detect the track using `profiles/README.md`; an explicit track wins.
 ## Steps
 
 1. Read `<plugin>/references/runtime-discovery.md`,
+   `<plugin>/references/readme-authorship.md`,
    `<plugin>/references/difficulty-calibration.md`,
    `<plugin>/references/difficulty-source-discovery.md`,
    `<plugin>/references/existing-task-validity.md`,

@@ -28,6 +28,7 @@ use the track's official review skill directly.
   `commit-workflow.md` (single commit after review passes), plus
   `runtime-discovery.md` (schema, routing, and cache drift policy) and
   `iterate-review.md` (the canonical validation/review loop),
+  `readme-authorship.md` (official README generation only; no task-edit history),
   `difficulty-strategy.md` (deliberate initial difficulty bias), and
   `ideation-to-creation.md` (automatic proposal composition), plus
   `difficulty-source-discovery.md` (CLI-only own-task discovery),
@@ -96,6 +97,12 @@ Quality repair likewise collects Codimango's exact-current-commit evidence
 before deciding whether a local baseline run is needed; complete platform
 failures become repair inputs, while every repaired task still receives full
 post-edit sanity and review.
+
+Task READMEs are authored only through the current official `update-readme`
+skill, never hand-edited by creation, repair, or tuning workflows. Changelogs,
+iteration summaries, and task-edit history belong in responses or commit
+messages. Sanity checks official-generation evidence for changed READMEs and
+blocks documentation-policy failures before review or commit.
 
 Review checklists, blocking criteria, and output formats come from the current
 official track skill. Difficulty is empirical (codimango CI trials), never
